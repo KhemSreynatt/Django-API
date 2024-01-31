@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
             name='Post',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titel', models.CharField(max_length=250)),
+                ('title', models.CharField(max_length=250)),
                 ('excerpt', models.TextField(null=True)),
                 ('content', models.TextField()),
                 ('slug', models.SlugField(max_length=250, unique_for_date='published')),

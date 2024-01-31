@@ -2,16 +2,25 @@ from django.shortcuts import render
 from blog.models import Post
 from rest_framework import generics
 from .serializers import PostSerializer
+from rest_framework.permissions import IsAdminUser, BasePermission, IsAuthenticatedOrReadOnly, SAFE_METHODS
 
+class PostUserWirtePermission(BasePermission):
+    messages='Editing post is restricted to the author only.'
+    def has_object_permission(self, request, view, obj):
+        if request.method in SAFE_METHODS:
+            return True
+        return obj.author == request.user
 class PostList(generics.ListCreateAPIView):
+    permission_classes= [IsAuthenticatedOrReadOnly]
     queryset = Post.postobjects.all()
     serializer_class = PostSerializer
-    pass
+   
 
-class PostDetail(generics.RetrieveDestroyAPIView):
+class PostDetail(generics.RetrieveDestroyAPIView, PostUserWirtePermission):
+    permission_classes =[PostUserWirtePermission]
     queryset = Post.postobjects.all()
     serializer_class = PostSerializer
-    pass
+    
 
 
 

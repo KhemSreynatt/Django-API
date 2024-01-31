@@ -22,7 +22,7 @@ class Post(models.Model):
     
     category = models.ForeignKey(
         Category, on_delete= models.PROTECT, default =1)
-    titel = models.CharField(max_length=250)
+    title = models.CharField(max_length=250)
     excerpt =models.TextField(null=True)
     content = models.TextField()
     slug = models.SlugField(max_length=250, unique_for_date ='published')
@@ -36,6 +36,6 @@ class Post(models.Model):
         ordering = ('-published',)
 
         def __str__(self):
-            return self.titel
+            return self.title
             
             

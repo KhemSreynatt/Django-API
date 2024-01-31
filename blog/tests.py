@@ -14,20 +14,20 @@ class Test_Create_Post(TestCase):
         testuser1.save()
 
         test_post = Post.objects.create(
-            category_id=1, titel='Post Title', excerpt='Post Excerpt', content='Post Content', slug='post-title', author_id=1, status='published')
+            category_id=1, title='Post Title', excerpt='Post Excerpt', content='Post Content', slug='post-title', author_id=1, status='published')
         test_post.save()
 
     def test_blog_content(self):
         post = Post.postobjects.get(id=1)
         cat = Category.objects.get(id=1)
         author = f'{post.author}'
-        # titel = f'{post.titel}'
+        # title = f'{post.title}'
         content = f'{post.content}'
         status = f'{post.status}'
         excerpt = f'{post.excerpt}'
         self.assertEqual(author, 'test_user1')
         self.assertEqual(excerpt,'Post Excerpt')
-        # self.assertEqual(titel, 'Post Title')
+        # self.assertEqual(title, 'Post Title')
         self.assertEqual(content, 'Post Content')
         self.assertEqual(status, 'published')
         # self.assertEqual(str(post), "Post Title")
