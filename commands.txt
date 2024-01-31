@@ -6,3 +6,5 @@ coverage run --omit='*/venv/*' manage.py test
 coverage html
 pip install djangorestframework-jsonapi
 pip install djangorestframewrok
+pip install django-cors-header
+python manage.py startapp your_folder_name
