@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+class AdminTemplates(admin.AdminSite):
+    site_header ="Admin Template",
+
+admin_site= AdminTemplates(name='AdminTemplate')
+

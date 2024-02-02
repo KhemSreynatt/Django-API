@@ -1,17 +1,8 @@
 from django.urls import path
 from .views import  PostList, PostDetail, PostListDetailfilter, CreatePost, EditPost, AdminPostDetail, DeletePost
 from rest_framework.routers import DefaultRouter
-
+from django.contrib import admin
 app_name='blog_api'
-
-# router = DefaultRouter()
-# router.register('', PostList, basename='post')
-# urlpatterns= router.urls
-
-# urlpatterns =[
-#     path('post/<int:pk>/', PostDetail.as_view(),name='detailcreate'),
-#     path('post/',PostList.as_view(),name='listcreate')
-# ]
 
 urlpatterns = [
     path('', PostList.as_view(), name='listpost'),
@@ -23,3 +14,5 @@ urlpatterns = [
     path('admin/edit/<int:pk>/', EditPost.as_view(), name='editpost'),
     path('admin/delete/<int:pk>/', DeletePost.as_view(), name='deletepost'),
 ]
+admin.site.index_title="Admin API"
+admin.site.site_header='Admin Dashboard'

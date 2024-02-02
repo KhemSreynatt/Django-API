@@ -66,12 +66,6 @@ class CreatePost(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# class CreatePost(generics.CreateAPIView):
-#     permission_classes = [permissions.IsAuthenticated]
-#     queryset= Post.objects.all()
-#     serializer_class=PostSerializer
-
-
 class AdminPostDetail(generics.RetrieveAPIView):
     permission_classes= [permissions.IsAuthenticated]
     queryset= Post.objects.all()
