@@ -21,7 +21,7 @@ urlpatterns = [
 
     # User Management
     path('api/user/', include('users.urls', namespace='users')),
-
+    path('api/profiles', include('profiles.urls', namespace='profiles')),
     # API Token Management
     path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
