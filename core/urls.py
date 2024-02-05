@@ -12,7 +12,11 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('admin/master',include('adminlte.urls')),
+    path('apps/', include('apps.urls')),
+    # path("", include('admin_argon.urls')),
      # Project URLs
+
     path('admin/', admin.site.urls),
     path('', include('blog.urls',namespace='blog')),
 
@@ -27,4 +31,7 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'), 
 
-]  +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+# +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns +=static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+urlpatterns +=static(settings.STATIC_URL,document_root= settings.STATIC_ROOT)
