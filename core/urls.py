@@ -12,8 +12,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/master',include('adminlte.urls')),
-    path('apps/', include('apps.urls')),
+    path('admin/templates',include('adminlte.urls')),
+    # path('apps/', include('apps.urls')),
     # path("", include('admin_argon.urls')),
      # Project URLs
 
